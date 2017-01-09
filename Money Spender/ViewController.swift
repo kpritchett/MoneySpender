@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    @IBOutlet weak var moneyInput: UITextField!
+    @IBOutlet weak var startingMoney: UILabel!
+    var money = Double()
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        money = Double(moneyInput.text!)!
+        let enter = segue.destination as! EntertainVC
+        enter.money = self.money
     }
-
 
 }
 
